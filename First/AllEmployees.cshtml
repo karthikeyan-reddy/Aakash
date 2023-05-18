@@ -1,0 +1,39 @@
+﻿@model SampleMVCApp.Models.Employee[]
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AllEmployees</title>
+    <style>
+        .card
+        {
+            background-color:lightgrey;
+            display:inline-block;
+            border:2px solid lightgreen;
+            padding:5px;
+            margin:5px;
+            width:25%;
+            border-radius:5px;
+            box-shadow:2px 2px 2px green;
+        }
+    </style>
+</head>
+<body>
+    <h1>List Of Employees With Us</h1>
+    @foreach (var item in Model)
+    {
+        <div class="card">
+            <h2>@item.EmpName</h2>
+            <p>@item.EmpId</p>
+            <p>@item.Address</p>
+            <p>@item.salary</p>
+            <p>@item.Phone</p>
+        </div>
+    }
+</body>
+</html>

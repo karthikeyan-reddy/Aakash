@@ -1,0 +1,45 @@
+﻿@model SampleMVCApp.Models.LoanApp
+@{
+    ViewData["Title"] = "OnAddNew";
+}
+@{
+    var data = ViewBag.Loantypes as Array;
+    List<SelectListItem> item = new List<SelectListItem>();
+    if(data !=null)
+    {
+        foreach (var type in item)
+        {
+            item.Add(new SelectListItem { Text = type.ToString() });
+        }
+    }
+}
+<h2>Application For Loan</h2>
+<br />
+@using (Html.BeginForm()){
+<div>
+    <p>
+        Enter The Id :
+        @Html.TextBoxFor(p=>p.Id)
+    </p>
+    <p>
+        Enter The Name :
+        @Html.TextBoxFor(p=>p.Applicant)
+    </p>
+    <p>
+        Enter The Address :
+        @Html.TextBoxFor(p=>p.Address)
+    </p>
+    <p>
+        Enter The LoanAmount :
+        @Html.TextBoxFor(p=>p.AmountOfLoan)
+    </p>
+    <p>
+        Enter The LoanType :
+        @Html.DropDownListFor(p=>p.Type , item)
+        </p>
+        <p>
+            <button>Submit</button>
+        </p>
+</div>
+}
+

@@ -1,0 +1,30 @@
+﻿
+@{
+    //var options = ViewBag.CalcOptions as List<SelectListItem>;
+    string[] inputs = TempData["options"] as string[];
+    var data = new List<SelectListItem>();
+    if (inputs == null) return;
+    foreach (var item in inputs)
+    {
+        data.Add(new SelectListItem { Text = item });
+    }
+}
+
+<h2>Calculator</h2>
+@using(Html.BeginForm("Calculate","Calc",FormMethod.Post))
+{
+<div>
+    <p>Enter The First Number : @Html.Editor("txtFirstValue")</p>
+    <p>Enter The Second Number : @Html.Editor("txtSecondValue")</p>
+    <p>Enter The Options : @Html.DropDownList("Options",data)</p>
+    <p>
+        <button>Calculate</button>
+    </p>
+</div>
+}
+@if(ViewData["Result"] != null)
+{
+    <p>
+            result : @ViewData["Result"]
+    </p>
+}

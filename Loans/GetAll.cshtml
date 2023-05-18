@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewData["Title"] = "GetAll";
+}
+
+<h1>List of Applicants</h1>
+<div>
+    <nav>
+        @Html.ActionLink("Apply Loan","OnAddNew")
+    </nav>
+</div>
+<hr />
+<div>
+    @if (Model.Count > 0)
+    {
+        <table border="1">
+            <tr>
+                <th>EntryId</th>
+                <th>Name</th>
+                <th>Contact Address</th>
+                <th>Amount Of Loan</th>
+                <th>Loan Type</th>
+                <th>Update Details</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Applicant</td>
+                    <td>@item.Address</td>
+                    <td>@item.AmountOfLoan</td>
+                    <td>@item.Type</td>
+                    <td>@Html.ActionLink("Process" , "OnEdit" , new{id = item.Id})</td>
+                </tr>
+            }
+        </table>
+    }
+    else
+    {
+        <p>No Applications Found</p>
+    }
+</div>
+
+
+
