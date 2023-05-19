@@ -1,0 +1,26 @@
+﻿@using SampleMVCApp.Data
+
+@model List<TblEmployee>
+<div>
+    <table class="table table-bordered table-striped" style="border:2px solid black">
+        <tr>
+            <th>Emp ID</th>
+            <th>Emp Name</th>
+            <th>Emp Phone</th>
+            <th>Emp Salary</th>
+            <th>DeptId</th>
+            <th>Emp City</th>
+        </tr>
+        @foreach (var emp in Model)
+        {
+            <tr>
+            <td>@emp.EmpId</td>
+            <td>@emp.EmpName</td>
+            <td>@emp.EmpPhone</td>
+            <td>@emp.EmpSalary</td>
+            <td>@emp.CityId</td>
+            <td>@emp.CityId</td>
+            </tr>
+        }
+    </table>
+</div>
